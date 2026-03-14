@@ -222,22 +222,16 @@ EOF
 }
 
 print_stream_started() {
-  local stream_key="$1"
-  local destination="${RTMPS_BASE_URL%/}/$stream_key"
-
   echo
   echo "[SUCCESS] Webcam stream is running."
-  echo "Cloudflare ingest:"
-  echo "  ${destination}"
 
   if hls_url="$(get_hls_url)"; then
     echo
-    echo "Cloudflare HLS playback URL:"
+    echo "Paste this URL into nomadic-ml-ui or nomadic-ml-stk to attach and analyze your live stream."
     echo "  ${hls_url}"
   else
     echo
-    echo "Cloudflare HLS playback URL:"
-    echo "  unavailable - set CF_HLS_URL if you want the script to print it"
+    echo "Set CF_HLS_URL to display your playback URL here."
   fi
 }
 
