@@ -1,4 +1,4 @@
-# Cloudflare Go Live
+# Nomadic Go Live
 
 Welcome to the hackathon! This script streams your laptop webcam to Cloudflare Stream so your team can broadcast live.
 
