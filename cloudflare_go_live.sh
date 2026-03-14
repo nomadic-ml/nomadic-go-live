@@ -188,7 +188,13 @@ EOF
 
 get_hls_url() {
   if [[ -n "${CF_HLS_URL:-}" ]]; then
-    printf '%s\n' "${CF_HLS_URL}"
+    local url="${CF_HLS_URL}"
+    if [[ "$url" != *"?"* ]]; then
+      url="${url}?protocol=llhls"
+    elif [[ "$url" != *"protocol="* ]]; then
+      url="${url}&protocol=llhls"
+    fi
+    printf '%s\n' "${url}"
     return 0
   fi
 
